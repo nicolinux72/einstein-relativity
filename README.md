@@ -1,4 +1,4 @@
-# einstein-relativity
+# Einstein's special relativity
 
 A short introduction to Einstein's special relativity using only the basic four operation.
 
@@ -6,7 +6,8 @@ We are looking for translators, please contact us!
 
 Available languages:
 
-* italiano: [Introduzione gentile alla relatività speciale](https://github.com/nicolinux72/einstein-relativity/italian/relativita.pdf)
+* italiano: [Introduzione gentile alla relatività speciale](https://github.com/nicolinux72/einstein-relativity/blob/master/italian/relativita.pdf)
+
 * english: TODO
 
 
@@ -41,4 +42,4 @@ fondamenti dell'universo in cui ci è capitato di vivere e fornire
 un'introduzione gentile per gli studenti che intendano iniziare lo studio della 
 fisica relativistica.
 
-Scarica l'[Introduzione gentile alla relatività speciale](https://github.com/nicolinux72/einstein-relativity/italian/relativita.pdf)
+Scarica l'[Introduzione gentile alla relatività speciale](https://github.com/nicolinux72/einstein-relativity/blob/master/italian/relativita.pdf)
