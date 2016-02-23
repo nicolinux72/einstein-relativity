@@ -1,0 +1,191 @@
+\newcommand*{\memfontfamily}{pnc}%New Century Schoolbook 
+\newcommand*{\memfontpack}{newcent}%(which comes in the T1 encoding),
+\documentclass[pdftex,a4paper, 12pt, article, column, 
+openany,extrafontsizes]{memoir}
+
+\usepackage[italian]{babel}%localizzazione 
+
+%\usepackage{lmodern}%latino moderno...
+%\usepackage[T1]{fontenc}%.. codificato T1
+%\usepackage{kpfonts} %altri font
+
+\usepackage[utf8]{inputenc}
+%ignore BOM (byte order mark) header for utf-8 file
+%creato da quel fesso di kile! nei primi 3 byte
+\DeclareUnicodeCharacter{FEFF}{} 
+%\DeclareUnicodeCharacter{00A0}{~}
+
+\usepackage[final]{microtype} % Less badboxes
+
+
+
+\usepackage{amsmath,amssymb,mathtools} % Math
+
+
+% layout 
+\setlrmarginsandblock{0.1\paperwidth}{*}{1} % Left and right margin
+\setulmarginsandblock{0.2\paperwidth}{*}{1}  % Upper and lower margin
+\checkandfixthelayout
+
+% \settrimmedsize{11in}{210mm}{*}
+% \setlength{\trimtop}{0pt}
+% \setlength{\trimedge}{\stockwidth}
+% \addtolength{\trimedge}{-\paperwidth}
+% \settypeblocksize{7.75in}{33pc}{*}
+% \setulmargins{4cm}{*}{*}
+% \setlrmargins{1.25in}{*}{*}
+% \setmarginnotes{17pt}{51pt}{\onelineskip}
+% \setheadfoot{\onelineskip}{2\onelineskip}
+% \setheaderspaces{*}{2\onelineskip}{*}
+% \checkandfixthelayout
+
+
+%%% SECTIONAL DIVISIONS
+%%%-----------------------------------------------------------------------------
+
+
+\maxsecnumdepth{subsection} % Subsections (and higher) are numbered
+\setsecnumdepth{subsection}
+
+\makeatletter %
+\makechapterstyle{standard}{
+  \setlength{\beforechapskip}{0\baselineskip}
+  \setlength{\midchapskip}{1\baselineskip}
+  \setlength{\afterchapskip}{8\baselineskip}
+  \renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
+  \renewcommand{\chapnamefont}{\centering\normalfont\Large}
+  \renewcommand{\printchaptername}{\chapnamefont \@chapapp}
+  \renewcommand{\chapternamenum}{\space}
+  \renewcommand{\chapnumfont}{\normalfont\Large}
+  \renewcommand{\printchapternum}{\chapnumfont \thechapter}
+  \renewcommand{\afterchapternum}{\par\nobreak\vskip \midchapskip}
+  \renewcommand{\printchapternonum}{\vspace*{\midchapskip}\vspace*{5mm}}
+  \renewcommand{\chaptitlefont}{\centering\bfseries\LARGE}
+  \renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
+  \renewcommand{\afterchaptertitle}{\par\nobreak\vskip \afterchapskip}
+}
+\makeatother
+
+\chapterstyle{standard}
+
+\setsecheadstyle{\normalfont\large\bfseries}
+\setsubsecheadstyle{\normalfont\normalsize\bfseries}
+\setparaheadstyle{\normalfont\normalsize\bfseries}
+\setparaindent{0pt}\setafterparaskip{0pt}
+
+%%% FLOATS AND CAPTIONS
+%%%-----------------------------------------------------------------------------
+
+
+\makeatletter                  % You do not need to write [htpb] all the time
+\renewcommand\fps@figure{htbp} %
+\renewcommand\fps@table{htbp}  %
+\makeatother                   %
+
+\captiondelim{\space } % A space between caption name and text
+\captionnamefont{\small\bfseries} % Font of the caption name
+\captiontitlefont{\small\normalfont} % Font of the caption text
+
+\changecaptionwidth          % Change the width of the caption
+\captionwidth{1\textwidth} %
+
+
+
+%%% NEW COMMANDS
+%%%-----------------------------------------------------------------------------
+
+
+\newcommand{\p}{\partial} %Partial
+% Or what ever you want
+
+%%% TABLE OF CONTENTS
+%%%-----------------------------------------------------------------------------
+
+
+\maxtocdepth{subsection} % Only parts, chapters and sections in the table of 
+%%contents
+\settocdepth{subsection}
+
+\AtEndDocument{\addtocontents{toc}{\par}} % Add a \par to the end of the TOC
+
+%%% INTERNAL HYPERLINKS
+%%%-----------------------------------------------------------------------------
+
+\usepackage{hyperref}   % Internal hyperlinks
+\hypersetup{
+pdfborder={0 0 0},      % No borders around internal hyperlinks
+pdfauthor={I am the Author} % author
+}
+\usepackage{memhfixc}   %
+
+%%% THE DOCUMENT
+%%% Where all the important stuff is included!
+%%%-----------------------------------------------------------------------------
+
+\author{N. Santi}
+
+\title{Introduzione gentile alla relatività speciale}
+
+
+
+
+
+\begin{document}
+
+
+
+\frontmatter
+
+\maketitle
+
+\begin{abstract}
+Albert Einstein formulò la sua teoria della relatività cent'anni fa ma ancora 
+adesso non viene nemmeno insegnata nelle scuole elementari o medie. Nessuno ci 
+capisce molto, in verità: sì, sappiamo che il tempo sia relativo ma non cosa 
+significhi? Forse che ogni persona viaggia col suo tempo proprio, che non è 
+possibile confrontare le esperienze degli uni con gli altri? Che il tempo 
+passato con una bella ragazza/ragazzo sia più breve di quello passato seduto su 
+una stufa accesa?
+
+Non ci si capisce molto e il poco appreso in modo fortuito o frammentario non 
+basta a ricostruire nemmeno le basi della bella e strana teoria della 
+relatività.
+
+Il punto è che per comprenderla veramente serve la matematica: non quella usata 
+solitamente nei libri di testo per nascondere il vero significato delle cose 
+dietro una selva di calcoli brigosi. No, quello che serve è quel minimo di 
+matematica che ci aiuti a capire cosa sia lo spazio-tempo, a toccarlo con dei 
+calcoli facili solo per farsi aiutare nella comprensione.
+
+Lo scopo di questo articolo è quindi quello di illustrare la relatività speciale 
+con lunghi discorsi e un solo esempio matematico basato sulle sole quattro 
+operazioni, quelle apprese nelle scuole elementari. Per i più temerari esiste 
+anche un'appendice che richiede una minima conoscenza di algebra, del tipo 
+appreso all'ultimo anno delle scuole medie.
+
+La speranza è quella di riuscire a divulgare a quante più persone possibile i 
+fondamenti dell'universo in cui ci è capitato di vivere e fornire 
+un'introduzione gentile per gli studenti che intendano iniziare lo studio della 
+fisica relativistica.
+
+\end{abstract}
+
+\clearpage
+
+\tableofcontents*
+\clearpage
+\frontmatter
+
+\input{galileo}
+\input{einstein}
+
+\backmatter
+\input{appendice}
+
+%%% BIBLIOGRAPHY
+%%% -------------------------------------------------------------
+
+% \bibliographystyle{utphysics}
+% \bibliography{ref}
+
+\end{document}

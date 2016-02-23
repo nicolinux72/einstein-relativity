@@ -1,0 +1,98 @@
+reset
+#set terminal pngcairo size 600,450 enhanced font 'Verdana,10'
+set output 'fig8.png'
+
+# color definitions
+set style line  1 lc rgb '#0060ad' pt 5 ps 0.2 lt 1 lw 2    # blue
+set style line  2 lc rgb '#60ad00' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line  3 lc rgb 'red' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line 11 lc rgb '#808080' lt 1 	#border
+set style line 12 lc rgb'#808080' lt 0 lw 1  #grid
+
+
+
+# Axes
+set xrange [0:3]
+set yrange [0:3]
+set size square
+
+set border 3 back ls 11
+set tics nomirror out scale 1
+set arrow from graph 0,0 to graph 1.02,0 size screen 0.020,15,60 filled ls 11
+set arrow from graph 0,1 to graph 0,1.05 size screen 0.025,15,60 filled ls 11
+
+# Grid  & Border
+#set format y "%10.1f" #mostro i decimali asse y
+set ytics 1       #tick ogni 0.1 passi 
+set grid back ls 12
+#set border 2 
+#set grid 
+
+# Legenda
+#set key top left
+#set key off
+set key box
+set key at 3,0.7
+
+# Functions
+c=1
+v=0.5
+b=sqrt(1-v*v)
+
+#passeggero
+pas(t)=v*t
+
+#locomotiva
+loc(t)=b+(v*t)
+
+#raggio di luce
+l(t) =     (c+v)*t 
+lb(x)=  x<=1.5 ? 2- (x/(c+v)) : 1/0
+
+#labels & arrows
+
+set title  "Sistema di riferimento della donna"
+set xlabel "x spazio"
+set ylabel "t tempo"
+
+set arrow from   0,0   to loc(1.73),1.73      head
+set arrow from   loc(1.73),1.73 to pas(2.32),2.32   head
+
+set label "e1" at loc(1.73)+0.1,1.73 left 
+set label "e2" at pas(2.32)+0.1,2.32 left 
+
+
+set multiplot layout 1,2 rowsfirst
+
+set parametric
+plot 0, t title "donna" with lines ls 3,   \
+pas(t),t title "pass." with lines ls 1,   \
+loc(t), t title "treno" with lines ls 2 \
+
+
+#sistema passeggero
+unset label
+unset arrow
+
+set title  "Sistema di riferimento del passeggero"
+set xrange [-1.5:1.5]
+set xlabel "x' spazio"
+set ylabel "t' tempo"
+
+set arrow from   0,0   to 1,1      head
+set arrow from   1,1   to  0,2   head
+
+set label "e1" at 1+0.1,1 left 
+set label "e2" at 0+0.1,2 left 
+
+set arrow from graph 0,0 to graph 1.02,0 size screen 0.020,15,60 filled ls 11
+set arrow from graph 0,1 to graph 0,1.05 size screen 0.025,15,60 filled ls 11
+
+
+plot -v*t, t title "donna" with lines ls 3,  \
+0,t title "pass." with lines ls 1,   \
+c, t title "treno" with lines ls 2
+
+
+
+unset multiplot

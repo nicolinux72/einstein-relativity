@@ -1,0 +1,119 @@
+reset
+#set terminal pngcairo size 600,450 enhanced font 'Verdana,10'
+set output 'fig5.png'
+
+# color definitions
+set style line  1 lc rgb '#0060ad' pt 5 ps 0.2 lt 1 lw 2    # blue
+set style line  2 lc rgb '#60ad00' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line  3 lc rgb 'red' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line 11 lc rgb '#808080' lt 1 	#border
+set style line 12 lc rgb'#808080' lt 0 lw 1  #grid
+
+# Axes
+set xrange [0:3]
+set yrange [0:3]
+set size square
+
+set border 3 back ls 11
+set tics nomirror out scale 1
+set arrow from graph 0,0 to graph 1.02,0 size screen 0.020,15,60 filled ls 11
+set arrow from graph 0,1 to graph 0,1.05 size screen 0.025,15,60 filled ls 11
+
+# Grid  & Border
+#set format y "%10.1f" #mostro i decimali asse y
+set ytics 1       #tick ogni 0.1 passi 
+set grid back ls 12
+#set border 2 
+#set grid 
+
+# Legenda
+#set key top left
+#set key off
+set key box
+set key at 3,0.7
+set key off
+# Functions
+c=1
+v=0.5
+b=sqrt(1-v*v)
+#passeggero
+pas(t)=v*t
+
+#locomotiva
+loc(t)=c+(v*t)
+
+#pallina
+l(t) =     (c+v)*t 
+lb(x)=  x<=1.5 ? 2- (x/(c+v)) : 1/0
+
+isoT0(t) = 0 
+isoT1(t) = 1
+isoT2(t) = 2
+isoT3(t) = 3
+isoT4(t) = 4
+isoTM1(t) = -1
+
+
+isoX0(t) = v*t 
+isoX1(t) = v*t + 1 
+isoX2(t) = v*t + 2
+isoX3(t) = v*t + 3
+isoX4(t) = v*t + 4
+isoXM1(t) = v*t - 1
+
+#labels & arrows
+
+set title  "Sistema di riferimento della donna"
+set xlabel "x spazio"
+set ylabel "t tempo"
+
+set arrow from   1.5,1   to 1.5,0  head
+set arrow from   1.5,1   to 0,1  head
+
+set label "e1" at loc(1)+0.1,1 left 
+set label "e2" at pas(2)+0.1,2 left 
+
+
+set multiplot layout 1,2 rowsfirst
+
+set parametric
+plot 0, t  with lines ls 1,   \
+t,0  with lines ls 1
+
+#sistema passeggero
+#unset label
+unset arrow
+unset grid
+set key off
+
+set title  "Sistema di riferimento del passeggero"
+
+set arrow from  0,0  to  3,isoT0(3)  head
+set arrow from  0,0  to  isoX0(3),3  head
+
+set arrow from  loc(1),1 to 1,0  head
+set arrow from  loc(1),1 to pas(1),1  head
+#set arrow from   1.5,1   to 0,1  head
+
+
+set label "x' spazio" at 2+0.5,isoT0(2)+0.1  center 
+set label "1"         at 0.7+0.2,isoT0(0.7)      center 
+set label "2"         at 1.5+0.2,isoT0(1.5)  center 
+
+set label "t' tempo"  at isoX0(2.7)-0.2,2.7  center rotate by  64
+set label "1"         at isoX0(1)-0.1,1  center 
+set label "2"         at isoX0(2)-0.1,2  center 
+
+
+plot t, isoT0(t) with lines ls 1, \
+t, isoT1(t) with lines ls 12, \
+t, isoT2(t) with lines ls 12, \
+t, isoT3(t) with lines ls 12, \
+t, isoTM1(t) with lines ls 12, \
+isoX0(t), t with lines ls 1, \
+isoX1(t), t with lines ls 12, \
+isoX2(t), t with lines ls 12, \
+isoX3(t), t with lines ls 12, \
+isoXM1(t), t with lines ls 12
+
+unset multiplot

@@ -1,0 +1,74 @@
+reset
+#set terminal pngcairo size 600,450 enhanced font 'Verdana,10'
+set output 'fig9.png'
+
+# color definitions
+set style line  1 lc rgb '#0060ad' pt 5 ps 0.2 lt 1 lw 2    # blue
+set style line  2 lc rgb '#60ad00' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line  3 lc rgb 'red' pt 5 ps 0.2 lt 1 lw 2    # green
+set style line 11 lc rgb '#808080' lt 1 	#border
+set style line 12 lc rgb'#808080' lt 0 lw 1  #grid
+
+
+
+# Axes
+set xrange [0:1]
+set yrange [-0.5:0.5]
+set size square
+
+set border 3 back ls 11
+set tics nomirror out scale 1
+set arrow from graph 0,0 to graph 1.02,0 size screen 0.020,15,60 filled ls 11
+set arrow from graph 0,1 to graph 0,1.05 size screen 0.025,15,60 filled ls 11
+
+# Grid  & Border
+#set format y "%10.1f" #mostro i decimali asse y
+set ytics 0.1       #tick ogni 0.1 passi 
+set grid back ls 12
+#set border 2 
+#set grid 
+
+# Legenda
+#set key top left
+#set key off
+set key box
+set key at 3,0.7
+set key off
+
+# Functions
+c=1
+v=0.5
+#b=sqrt(1-v*v)
+b=0.8660254038
+
+#passeggero
+pas(t)=v*t
+
+#locomotiva
+loc(t)=b+(v*t)
+
+#raggio di luce
+l(t) =     (c+v)*t 
+lb(x)=  x<=1.5 ? 2- (x/(c+v)) : 1/0
+
+isoT0(t) = v*t 
+isoTM1(t) = v*t - v*b
+
+
+#labels & arrows
+
+set title  "Sistema di riferimento della donna"
+set xlabel "x spazio"
+set ylabel "t tempo"
+
+set label "C"    at 0, 0+0.05  center 
+set label "T"    at b, 0+0.05  center 
+
+set label "t' = 0"    at 0.5,isoT0(0.5)+0.05  center rotate by  26
+set label "t' = -0,5" at 0.5,isoTM1(0.5)+0.05 center rotate by  26
+
+set arrow from   0,0  to b,0  heads ls 1
+
+set parametric
+plot t, isoT0(t) with lines ls 11,  \
+t, isoTM1(t) with lines ls 11

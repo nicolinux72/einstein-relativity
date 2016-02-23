@@ -1,0 +1,11 @@
+#set terminal pngcairo truecolor enhanced size 450,450
+
+set terminal pngcairo size 600,450 enhanced font 'Verdana,10'
+load 'fig 4 la pallina nei due sistemi'
+load 'fig 5 scambio coord g1'
+load 'fig 7 lunghezze'
+load 'fig 8 la luce nei due sistemi'
+load 'fig 9 spazio-tempo'
+load 'fig 10 scambio coordinate e1'
+load 'fig 11 lunghezze e'
+load 'fig 12 rel tempo'

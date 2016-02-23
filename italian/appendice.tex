@@ -1,0 +1,221 @@
+﻿\appendix
+
+
+\chapter{Appendice Matematica}
+
+\section{Appendice A: la palla e il passeggero}
+
+In questo paragrafo tutto sarà misurato dal punto di vista del passeggero sul treno. L'equazione che descrive la posizione della palla lanciata dal passeggero è:
+
+\begin{equation} \label{eq:pass_palla} 
+  x'= ct'
+\end{equation}
+
+Rispetto a lui coda e testa del treno sono ferme, in particolare la locomotiva è sempre alla stessa distanza $c$:
+
+\begin{equation} \label{eq:pass_loco} 
+  x'= c
+\end{equation}
+
+Per scoprire quando queste due traiettorie s'incontrino basta mettere a sistema le equazioni \ref{eq:pass_palla} e \ref{eq:pass_loco} sostituendo la $x'$ in entrambe:
+
+$$ c = ct $$
+$$ \frac{c}{c} = t $$
+$$ 1 = t $$
+
+Ovvero dopo un secondo. Per scoprire dove s'incontrano (ma lo sapete già vero?) basta sostituire $1$ nel tempo della \ref{eq:pass_palla} oppure nella \ref{eq:pass_loco}. 
+
+$$ x'= ct' $$
+$$ x'= c1 $$
+$$ x'= c $$
+
+Chiaramente si trovano alla distanza $c$ la distanza a cui è ferma la locomotiva. L'equazione che descrive invece il ritorno della palla è forse un po' più complessa:
+
+\begin{equation} \label{eq:pass_palla_back} 
+   x' = c(1-t') + c
+\end{equation}
+
+Ragioniamoci un istante: quando $t'=1$ il primo termine si annulla e l'equazione restituisce $c$, giustamente perché lì si trova la palla dopo un secondo. Il segno meno davanti a $t'$ ci ricorda che, questa volta, la palla si sta avvicinando al passeggero muovendosi nella direzione opposta al treno. Infine la palla continua a muoversi a velocità $c$. L'equazione del passeggero è invece facilissima visto che, dal suo punto di vista, lui non si muove affatto:
+
+\begin{equation} \label{eq:pass_pass} 
+   x' = 0
+\end{equation}
+
+Mettendo a sistema la \ref{eq:pass_pass} con la \ref{eq:pass_palla_back}:
+
+$$ 0 = c(1-t') + c $$
+$$ 0 = c -ct' + c $$
+$$ ct' = 2c $$
+$$ t' = 2 $$
+
+Quindi dopo aver colpito la locomotiva passa un altro secondo e la palla è di nuovo in mano al passeggero: il cronometro segna $t'=2$, sono passati in tutto due secondi.
+
+La pallina ha percorso una distanza pari a $c$ all'andata e $c$ al ritorno. Quindi in tutto la pallina ha percorso questa distanza:
+
+$$\Delta x' = c+c = 2c $$
+
+E ci ha impiegato:
+
+$$\Delta t' = 2 $$
+
+I calcoli ci confermano che la pallina si muove alla velocità $c$: la velocità data infatti dallo spazio percorso diviso il tempo impiegato a percorrerlo:
+
+$$ c =\frac{\Delta x'}{\Delta t'}=\frac{2c}{c} $$
+
+
+\section{Appendice B: la palla e la signora}
+
+In questo paragrafo tutto sarà misurato dal punto di vista della donna sulla pensilina. L'equazione che descrive la posizione della palla lanciata dal passeggero è:
+
+\begin{equation} \label{eq:donna_palla} 
+  x=(c+v)t
+\end{equation}
+
+
+Da notare come la palla, per la donna, si muova ad una velocità superiore a $c$, per effetto della relatività galileiana. L'equazione che ci informa sulla posizione della testa del treno è:
+
+\begin{equation} \label{eq:donna_loco} 
+   x=vt+c
+\end{equation}
+
+
+Per sapere quando e dove il raggio raggiungerà la locomotiva basta mettere a sistema le equazioni \ref{eq:donna_palla} e \ref{eq:donna_loco}: è facile, sostituiamo la $x$:
+
+$$ (c+v) t = vt + c $$
+$$ ct+vt = vt + c $$
+$$ ct = c $$
+$$ t = 1 $$
+
+Ecco la risposta, dopo un secondo la palla raggiunge la locomotiva. Dove? Basta sostituire nella \ref{eq:donna_palla} o nella \ref{eq:donna_loco} il tempo appena trovato:
+
+$$ x=(c+v)1 $$
+$$ x=c+v $$
+
+E per tornare indietro? Come visto nel paragrafo precedente  l'equazione che descrive la traiettoria di ritorno della palla è:
+
+\begin{equation} \label{eq:donna_palla_back} 
+  x = (c-v)(1-t) + (v+c)
+\end{equation}
+
+Non è così difficile come appare, ragioniamoci un istante: quando $t=1$ ci deve restituire esattamente $v+c$ perché la palla si trova lì in quel momento. Inoltre al ritorno la palla si muove in senso contrario al treno per cui la sua velocità, per la relatività galileiana, diventa $c-v$. Infine il segno meno davanti a $t$ ci ricorda che la palla si sta avvicinando alla donna andando in direzione opposta al treno. 
+
+L'equazione che riporta la posizione del passeggero è invece:
+
+\begin{equation} \label{eq:donna_passeggero} 
+   x = vt
+\end{equation}
+
+
+Come prima mettiamo a sistema le equazioni \ref{eq:donna_palla_back} e \ref{eq:donna_passeggero}:
+
+$$ vt = (c-v)(1-t) + (v+c) $$
+$$ vt = c-v -ct + vt + v+c $$
+$$ vt -vt = c -ct +c +v -v $$
+$$ 0 =  2c - ct  $$
+$$ ct =  2c $$
+$$ t =2 $$
+
+Quindi due secondi dopo la sincronizzazione degli orologi ed un secondo dopo aver toccato la locomotiva la palla torna in mano al passeggero che, quel momento si trova in:
+
+$$ x = vt $$
+$$ x = v2 $$
+
+Quanta distanza ha percorso la pallina? Ad andare una distanza pari a $c+v$ e  al ritorno $c-v$. Quest'ultimo dato si calcola facilmente sapendo che al secondo $1$ la pallina era nella posizione $c+v$ e nel secondo $2$ era nella posizione $2v$, per cui $c+v-2v=c-v$. Quindi in tutto la pallina ha percorso questa distanza:
+
+$$\Delta x = c+v + (c-v) = 2c $$
+
+E ha impiegato:
+
+$$\Delta t = 2 $$
+
+I calcoli ci confermano che la pallina si muove ad una velocità media di $c$ data, come sempre, dallo spazio percorso diviso il tempo impiegato a percorrerlo:
+
+$$ c =\frac{\Delta x}{\Delta t} = \frac{2c}{2} $$
+
+
+\section{Appendice C: la luce e il passeggero}
+
+I calcoli sono li stessi presentati nella sezione La palla e il passeggero, basta sostituire la parola \textit{palla} con \textit{luce} e rammentarsi che adesso $c$ è una velocità altissima. 
+
+\section{Appendice D: la luce e la signora}
+Tutte le misure in questo paragrafo saranno riferite alla signora ferma alla banchina. L'equazione che descrive il raggio di luce emesso dal passeggero quando incrocia la donna è:
+
+\begin{equation} \label{eq:donna_luce} 
+  x=ct
+\end{equation}
+
+Da notare come tutte le stranezze derivino proprio da questa equazione: se si comportasse secondo quando indicato da galileo la luce dovrebbe andare alla velocità $c+v$ come nell'equazione \ref{eq:donna_palla}. Così non è quindi tutto prende una piega diversa.
+
+Anche l'equazione che ci informa sulla posizione della testa del treno è invece cambiata rispetto alla  \ref{eq:donna_loco}. Vediamola
+\begin{equation} \label{eq:donna_loco2} 
+   x=vt+\beta c
+\end{equation}
+
+La faccenda è che misurando la lunghezza del treno\footnote{Vi ricordate come si fa vero? Si fa rimbalzare un raggio di luce e si misura quanto tempo impiega a tornare.} nell'istante in cui il passeggero incrocia la donna scopriremmo che, per questa, il treno non sia più lungo $2c$ ma $2c\beta$.  Più corto di questo fattore di contrazione $\beta$ che, data la velocità $v$, diventa una costante e , nel nostro sistema semplificato in cui $c=1$, possiamo scrivere come:
+
+$$ \beta = \sqrt{1-v^2} $$   
+
+Essendo $v<c=1$ anche $\beta<1$ quindi moltiplicandolo per una grandezza fisica la riduce. Nel nostro esempio il treno viaggia a $v=c/2=1/2$ per cui $\beta=0.86$. Se vi domandate da dove esca questo valore vi invitiamo ad attendere fino al prossimo paragrafo in cui sarà derivato in modo semplice, sempre con le quattro operazioni e un po' di algebra.
+
+Tornando a noi, avendo l'equazione del raggio di luce \ref{eq:donna_luce} e quella della locomotiva \ref{eq:donna_loco2} basta metterle a sistema per sapere quando si toccheranno:
+
+$$ ct = vt + \beta c $$
+$$ ct - vt =  \beta c $$
+$$ (c-v) t =  \beta c $$
+
+\begin{equation} \label{eq:donna_deltat} 
+   t = \frac{\beta c}{c-v}
+\end{equation}
+
+A questo punto possiamo sfruttare la nostra semplificazione per cui $c=1$ e la velocità del treno nel nostro esempio, $v=c/2$, per ottenere dei numeri più comodi:
+
+$$ t = \frac{\beta}{1-\frac{1}{2}} $$
+$$ t = \frac{\beta}{\frac{1}{2}} $$
+$$ t = 2\beta $$
+
+Nel nostro esempio quindi $t= 2(0.86)= 1.73 > 1$: per la donna l'intervallo di tempo che va dal momento della sincronizzazione degli orologi a quando la luce colpisce la testa del treno è maggiore di $1$ secondo. Per il passeggero invece è passato esattamente $1$ secondo!
+
+Per trovare dove la luce colpisca la locomotiva basta sostituire la \ref{eq:donna_deltat} nella  \ref{eq:donna_luce} o nella \ref{eq:donna_loco2}:
+
+$$ x = ct $$
+$$ x = c \frac{\beta c}{c-v} $$
+
+\begin{equation} \label{eq:donna_luce_rimb} 
+  x = \frac{\beta c^2}{c-v}
+\end{equation}
+
+
+Ora torniamo indietro seguendo la luce nel suo viaggio di ritorno fino al passeggero. L'equazione è simile a \ref{eq:donna_palla_back} ed è questa:
+ 
+\begin{equation} \label{eq:donna_luce_back} 
+  x = c(\frac{\beta c}{c-v}-t) + \frac{\beta c^2}{c-v}
+\end{equation}
+ 
+Descriviamo le sue parti: quando $t=\frac{\beta c}{c-v}$ ci deve restituire esattamente $\frac{\beta c^2}{c-v}$ perché la luce si trova, in quel momento, in quel punto (come stabilito dalla \ref{eq:donna_luce_rimb}). Inoltre al ritorno la luce si muove in senso contrario al treno ma la sua velocità è sempre, ostinatamente, $c$! Infine il segno meno davanti a $t$ ci ricorda che la luce si sta avvicinando alla donna. 
+
+L'equazione del passeggero è invece sempre:
+
+$$ x=vt $$
+
+Quindi mettendo a sistema questa con la \ref{eq:donna_luce_back} otteniamo:
+
+$$ vt = c(\frac{\beta c}{c-v}-t) + \frac{\beta c^2}{c-v}  $$
+$$ vt = \frac{\beta c^2}{c-v} – ct + \frac{\beta c^2}{c-v} $$
+$$ vt + ct = \frac{2\beta c^2}{c-v} $$
+$$ (v + c)t = \frac{2\beta c^2}{c-v} $$   
+$$ t = \frac{2\beta c^2}{(c-v)(v+c)} $$   
+$$ t = \frac{2\beta c^2}{c^2-v^2} $$
+
+Bene, ci siamo quasi: nel nostro mondo semplificato $c=1$ e ricordo che $1-v^2=\beta^2$, per cui:
+
+$$ t = \frac{2\beta}{1-v^2} $$
+$$ t = \frac{2\beta}{\beta^2} $$
+$$ t = \frac{2}{\beta} $$
+
+Nel nostro esempio quindi $t= 2/0.86= 2.32 > 2s$: quindi anche nell'esperimento completo il raggio di luce impiega $2$ secondi per il passeggero e $2.32$ secondi per la donna.
+
+Concludiamo con i soliti conti circa spazio, tempo e velocità. La luce ha percorso una distanza pari a $\frac{2c}{\beta}$. In effetti è facile da verificare visto che la luce si muove sempre a velocità $c$ e sono passati in tutto $\frac{2}{\beta}$ secondi. 
+
+Si può notare già vedere in azione il fattore di conversione di intervalli di tempo e di spazio: se vi ricordate il treno è lungo $2c$ per il passeggero ma solo $2c\beta$ per la donna. Analogamente la distanza percorsa in tutto dalla luce, come si è appena visto, è $\frac{2c}{\beta}$ per la donna e $2c$ per il passeggero, così come il tempo è $\frac{2}{\beta}$ per la donna e $2$ per il passeggero. Si tratta di moltiplicare per $\beta$, come farlo in modo corretto è spiegato nel paragrafo TODO.
+
+  
